@@ -1,0 +1,1 @@
+// This file is intentionally left blank. It is used to satisfy Cypress's requirement for a support file.
