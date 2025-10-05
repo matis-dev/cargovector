@@ -1,0 +1,9 @@
+{
+  "common": {
+    "hello": "Witaj",
+    "language_switcher": "Zmień język"
+  },
+  "home": {
+    "title": "Witaj w e-Przewoźnik"
+  }
+}

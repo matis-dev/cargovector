@@ -1,10 +1,24 @@
 import React from 'react';
 import Image from "next/image";
+import LanguageSwitcher from "../../components/LanguageSwitcher"; // Adjusted import path
+import { getDictionary } from "../../lib/i18n/getDictionary"; // Adjusted import path
 
-export default function Home() {
+interface HomePageProps {
+  params: Promise<{ lang: string }>;
+}
+
+export default async function Home({
+  params,
+}: HomePageProps) {
+  const { lang } = await params; // Await params before destructuring
+  const dictionary = await getDictionary(lang);
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <h1>{dictionary.home.title}</h1>
+        <p>{dictionary.common.hello}</p>
+        <LanguageSwitcher />
         <Image
           className="dark:invert"
           src="/next.svg"
