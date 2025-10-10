@@ -33,5 +33,5 @@ test('changes language when a new option is selected', () => {
 
   fireEvent.change(selectElement, { target: { value: 'pl' } });
 
-  expect(mockReplace).toHaveBeenCalledWith('/pl/');
+  expect(mockReplace).toHaveBeenCalledWith('/pl');
 });

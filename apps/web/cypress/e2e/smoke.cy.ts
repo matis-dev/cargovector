@@ -1,6 +1,6 @@
-describe('My First Test', () => {
-  it('visits the app', () => {
-    cy.visit('/');
-    cy.contains('Get started by editing');
+describe('Smoke Test', () => {
+  it('visits the login page', () => {
+    cy.visit('/login');
+    cy.contains('Sign in to your account');
   });
 });

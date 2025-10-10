@@ -1,0 +1,10 @@
+# Firebase Functions specific ignores
+
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+
+# Build output
+lib/

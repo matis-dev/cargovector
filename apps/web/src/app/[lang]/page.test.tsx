@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import { test, expect, vi } from 'vitest';
 import Home from './page';
 
+vi.mock('server-only', () => ({}));
+
 // Mock the getDictionary function
 vi.mock('../lib/i18n/getDictionary', () => ({
   getDictionary: vi.fn(async () => ({

@@ -44,3 +44,5 @@ apps/web/.next
 apps/web/cypress/videos/
 apps/web/cypress/screenshots/
 apps/web/cypress/reports/
+/firebase/functions/node_modules
+/firebase/functions/lib/

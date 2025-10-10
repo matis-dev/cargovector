@@ -1,0 +1,33 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "*.spec.ts"
+      ]
+    }
+  ],
+  "emulators": {
+    "auth": {
+      "host": "localhost",
+      "port": 9098
+    },
+    "firestore": {
+      "host": "localhost",
+      "port": 8081
+    },
+    "ui": {
+      "enabled": true
+    },
+    "functions": {
+      "host": "localhost"
+    }
+  }
+}
