@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { auth } from '@/lib/firebase/client';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -67,6 +68,11 @@ export default function LoginForm() {
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         />
         {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password.message}</p>}
+      </div>
+      <div className="text-sm">
+        <Link href="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
+          Forgot your password?
+        </Link>
       </div>
       <div>
         <button
