@@ -17,6 +17,16 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    include: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
+    environmentOptions: {
+        jsdom: {
+            resources: 'usable',
+        },
+    },
+    // Use 'node' environment for server-side tests
+    environmentMatchGlobs: [
+        ['src/lib/server/**/*.test.ts', 'node'],
+    ],
   },
   optimizeDeps: {
     include: ['firebase/auth'],

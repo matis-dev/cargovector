@@ -8,12 +8,25 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "test": "npx vitest run"
+    "test": "npx vitest run src"
   },
   "vitest": {
     "setupFiles": [
       "./vitest.setup.ts"
-    ]
+    ],
+    "include": [
+      "src/**/*.test.ts"
+    ],
+    "exclude": [
+      "lib/**"
+    ],
+    "test": {
+      "environment": "node",
+      "globals": true,
+      "include": [
+        "src/**/*.test.ts"
+      ]
+    }
   },
   "engines": {
     "node": "22"
@@ -25,6 +38,7 @@
     "resend": "^6.1.2"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
     "eslint": "^8.9.0",

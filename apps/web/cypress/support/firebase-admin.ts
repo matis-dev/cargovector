@@ -2,20 +2,37 @@ const admin = require('firebase-admin');
 
 if (!admin.apps.length) {
   process.env.FIREBASE_AUTH_EMULATOR_HOST = 'localhost:9098';
+  process.env.FIRESTORE_EMULATOR_HOST = 'localhost:8081';
   admin.initializeApp({
     projectId: 'cargovector-e710f',
   });
 }
 
-export const createUser = async ({ email, password }) => {
+export const createUser = async ({ email, password, customClaims, profile }) => {
   try {
-    const userRecord = await admin.auth().createUser({ email, password });
-    return userRecord.uid;
-  } catch (error) {
-    if ((error as any).code === 'auth/email-already-exists') {
-      const user = await admin.auth().getUserByEmail(email);
-      return user.uid;
+    let uid;
+    try {
+      const userRecord = await admin.auth().createUser({ email, password });
+      uid = userRecord.uid;
+    } catch (error) {
+      if ((error as any).code === 'auth/email-already-exists') {
+        const user = await admin.auth().getUserByEmail(email);
+        uid = user.uid;
+      } else {
+        throw error;
+      }
     }
+
+    if (customClaims) {
+      await admin.auth().setCustomUserClaims(uid, customClaims);
+    }
+
+    if (profile) {
+      await admin.firestore().collection('users').doc(uid).set(profile);
+    }
+
+    return { uid };
+  } catch (error) {
     console.error('Error creating user:', error);
     return null;
   }

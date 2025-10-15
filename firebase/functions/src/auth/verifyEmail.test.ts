@@ -26,29 +26,27 @@ vi.mock("firebase-admin", () => ({
 }));
 
 describe("verifyEmail function", () => {
-  let mockRequest: Partial<Request>;
+  let mockRequest: any;
   let mockResponse: Partial<Response>;
-  let responseStatus: number;
-  let redirectUrl: string;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    responseStatus = 0;
-    redirectUrl = "";
 
-    mockResponse = {
-      status: vi.fn(function(this: any, status) {
-        responseStatus = status;
-        return this;
-      }),
-      redirect: vi.fn(function(this: any, url) {
-        redirectUrl = url;
-        return this;
-      }),
-      send: vi.fn(function(this: any) {
-        return this;
-      }),
-    };
+    const res: {[key: string]: any} = {};
+    res.status = vi.fn((status) => {
+      res.statusCode = status;
+      return res;
+    });
+    res.redirect = vi.fn((url) => {
+      res.redirectUrl = url;
+      return res;
+    });
+    res.send = vi.fn((body) => {
+      res.body = body;
+      return res;
+    });
+
+    mockResponse = res as Partial<Response>;
   });
 
   it("should verify email and update user status", async () => {
@@ -62,7 +60,7 @@ describe("verifyEmail function", () => {
 
     await verifyEmail(mockRequest as Request, mockResponse as Response);
 
-    expect(redirectUrl).toBe("/verification-success");
+    expect((mockResponse as any).redirectUrl).toBe("/verification-success");
     expect(mockUpdate).toHaveBeenCalledWith({
       emailVerified: true,
       status: "active",
@@ -72,12 +70,12 @@ describe("verifyEmail function", () => {
 
   it("should return 400 for invalid oobCode", async () => {
     mockRequest = {
-      query: {oobCode: "12345"}, // Invalid type
+      query: {oobCode: 12345},
     };
 
-    await verifyEmail(mockRequest as Request, mockResponse as Response);
+    await verifyEmail(mockRequest as any, mockResponse as Response);
 
-    expect(responseStatus).toBe(400);
+    expect((mockResponse as any).statusCode).toBe(400);
   });
 
   it("should redirect to failure page if action code is invalid", async () => {
@@ -89,6 +87,6 @@ describe("verifyEmail function", () => {
 
     await verifyEmail(mockRequest as Request, mockResponse as Response);
 
-    expect(redirectUrl).toBe("/verification-failure");
+    expect((mockResponse as any).redirectUrl).toBe("/verification-failure");
   });
 });
