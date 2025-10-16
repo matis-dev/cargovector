@@ -19,6 +19,21 @@ export default async function Home({
         <h1>{dictionary.home.title}</h1>
         <p>{dictionary.common.hello}</p>
         <LanguageSwitcher />
+
+        <div className="flex flex-col gap-2 mt-8">
+          <h2 className="text-xl font-bold">Navigation Links</h2>
+          <ul className="list-disc list-inside">
+            <li><a href={`/${lang}/check-email`} className="text-blue-600 hover:underline">Check Email</a></li>
+            <li><a href={`/${lang}/dashboard`} className="text-blue-600 hover:underline">Dashboard</a></li>
+            <li><a href={`/${lang}/forgot-password`} className="text-blue-600 hover:underline">Forgot Password</a></li>
+            <li><a href={`/${lang}/login`} className="text-blue-600 hover:underline">Login</a></li>
+            <li><a href={`/${lang}/profile`} className="text-blue-600 hover:underline">Profile</a></li>
+            <li><a href={`/${lang}/register`} className="text-blue-600 hover:underline">Register</a></li>
+            <li><a href={`/${lang}/reset-password`} className="text-blue-600 hover:underline">Reset Password</a></li>
+            <li><a href={`/${lang}/verification-failure`} className="text-blue-600 hover:underline">Verification Failure</a></li>
+            <li><a href={`/${lang}/verification-success`} className="text-blue-600 hover:underline">Verification Success</a></li>
+          </ul>
+        </div>
         <Image
           className="dark:invert"
           src="/next.svg"

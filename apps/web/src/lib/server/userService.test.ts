@@ -1,5 +1,4 @@
 import { getUserProfile, updateUserProfile } from './userService';
-import * as admin from 'firebase-admin';
 
 vi.mock('@/lib/firebase/admin', () => ({
   initFirebaseAdmin: vi.fn(),

@@ -1,78 +1,45 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import LoginForm from '@/components/LoginForm';
-import { useRouter } from 'next/navigation';
-import { auth } from '@/lib/firebase/client'; // Import auth from client
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Import from firebase/auth
-
-// Mock next/navigation
-const mockPush = vi.fn();
-vi.mock('next/navigation', () => ({
-  useRouter: vi.fn(() => ({
-    push: mockPush,
-  })),
-}));
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import LoginForm from './LoginForm';
 
 describe('LoginForm', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
+  const onLogin = vi.fn();
 
   it('should render email and password fields', () => {
-    render(<LoginForm />);
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+    render(<LoginForm onLogin={onLogin} error={null} />);
+    expect(screen.getByLabelText('Email address')).toBeInTheDocument();
+    expect(screen.getByLabelText('Password')).toBeInTheDocument();
   });
 
   it('should display an error message for invalid email', async () => {
-    render(<LoginForm />);
-    const emailInput = screen.getByLabelText(/email/i);
-    const submitButton = screen.getByRole('button', { name: /login/i });
+    render(<LoginForm onLogin={onLogin} error={null} />);
+    fireEvent.change(screen.getByLabelText('Email address'), { target: { value: 'invalid-email' } });
+    fireEvent.click(screen.getByText('Sign in'));
 
-    const user = userEvent.setup();
-    await user.type(emailInput, 'invalid-email');
-    await user.click(submitButton);
-
-    expect(await screen.findByText(/invalid email address/i)).toBeInTheDocument();
+    expect(await screen.findByText('Invalid email address')).toBeInTheDocument();
   });
 
-  it('should redirect to dashboard on successful login', async () => {
-    (signInWithEmailAndPassword as vi.Mock).mockResolvedValueOnce({});
+  it('should display an error message for short password', async () => {
+    render(<LoginForm onLogin={onLogin} error={null} />);
+    fireEvent.change(screen.getByLabelText('Password'), { target: { value: '123' } });
+    fireEvent.click(screen.getByText('Sign in'));
 
-    render(<LoginForm />);
-    const emailInput = screen.getByLabelText(/email/i);
-    const passwordInput = screen.getByLabelText(/password/i);
-    const submitButton = screen.getByRole('button', { name: /login/i });
+    expect(await screen.findByText('Password must be at least 6 characters')).toBeInTheDocument();
+  });
 
-    const user = userEvent.setup();
-    await user.type(emailInput, 'test@example.com');
-    await user.type(passwordInput, 'password123');
-    await user.click(submitButton);
+  it('should call onLogin with form data on valid submission', async () => {
+    render(<LoginForm onLogin={onLogin} error={null} />);
+    fireEvent.change(screen.getByLabelText('Email address'), { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getByLabelText('Password'), { target: { value: 'password123' } });
+    fireEvent.click(screen.getByText('Sign in'));
 
     await waitFor(() => {
-      expect(signInWithEmailAndPassword).toHaveBeenCalledWith(auth, 'test@example.com', 'password123');
-      expect(mockPush).toHaveBeenCalledWith('/dashboard');
+      expect(onLogin).toHaveBeenCalledWith({ email: 'test@example.com', password: 'password123' });
     });
   });
 
-  it('should display an error message on failed login', async () => {
-    const errorMessage = 'Firebase: Error (auth/invalid-credential).';
-    (signInWithEmailAndPassword as vi.Mock).mockRejectedValueOnce(new Error(errorMessage));
-
-    render(<LoginForm />);
-    const emailInput = screen.getByLabelText(/email/i);
-    const passwordInput = screen.getByLabelText(/password/i);
-    const submitButton = screen.getByRole('button', { name: /login/i });
-
-    const user = userEvent.setup();
-    await user.type(emailInput, 'wrong@example.com');
-    await user.type(passwordInput, 'wrongpassword');
-    await user.click(submitButton);
-
-    await waitFor(() => {
-      expect(signInWithEmailAndPassword).toHaveBeenCalledWith(auth, 'wrong@example.com', 'wrongpassword');
-      expect(screen.getByText(errorMessage)).toBeInTheDocument();
-    });
+  it('should display an error message from props', () => {
+    render(<LoginForm onLogin={onLogin} error="Invalid credentials" />);
+    expect(screen.getByText('Invalid credentials')).toBeInTheDocument();
   });
 });

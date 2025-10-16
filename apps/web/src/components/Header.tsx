@@ -1,9 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '@/lib/firebase/client';
 import LogoutButton from './LogoutButton';
 
 export default function Header() {
+  const [user] = useAuthState(auth);
+
   return (
     <header className="bg-white shadow-md">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -19,7 +23,7 @@ export default function Header() {
           <Link href="/profile" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100">
             Profile
           </Link>
-          <LogoutButton />
+          {user && <LogoutButton />}
         </div>
       </nav>
     </header>

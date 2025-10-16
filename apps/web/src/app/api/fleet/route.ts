@@ -3,9 +3,8 @@ import * as admin from 'firebase-admin';
 import { initFirebaseAdmin } from '@/lib/firebase/admin';
 import { getVehicles, addVehicle } from '@/lib/server/userService';
 
-initFirebaseAdmin();
-
 export async function GET(request: Request) {
+  initFirebaseAdmin();
   try {
     const idToken = request.headers.get('Authorization')?.split('Bearer ')[1];
     if (!idToken) {
@@ -23,6 +22,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  initFirebaseAdmin();
   try {
     const idToken = request.headers.get('Authorization')?.split('Bearer ')[1];
     if (!idToken) {

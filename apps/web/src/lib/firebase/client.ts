@@ -24,9 +24,6 @@ if (process.env.NEXT_PUBLIC_EMULATOR === 'true') {
 export { app, auth, db };
 
 if (typeof window !== 'undefined' && window.Cypress) {
-  (window as any).auth = auth;
-}
-
-if (typeof window !== 'undefined' && window.Cypress) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (window as any).auth = auth;
 }

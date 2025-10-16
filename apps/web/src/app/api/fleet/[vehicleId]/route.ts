@@ -3,12 +3,11 @@ import * as admin from 'firebase-admin';
 import { initFirebaseAdmin } from '@/lib/firebase/admin';
 import { removeVehicle } from '@/lib/server/userService';
 
-initFirebaseAdmin();
-
 export async function DELETE(
   request: Request,
   { params }: { params: { vehicleId: string } }
 ) {
+  initFirebaseAdmin();
   try {
     const idToken = request.headers.get('Authorization')?.split('Bearer ')[1];
     if (!idToken) {

@@ -4,7 +4,7 @@ import { describe, it, expect, vi } from 'vitest';
 import '@testing-library/jest-dom';
 import RegistrationForm from './RegistrationForm';
 
-import { useRouter } from 'next/navigation';
+
 
 // Mock next/navigation
 const mockPush = vi.fn();

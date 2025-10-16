@@ -1,55 +1,52 @@
-[debug] [2025-10-15T19:39:47.990Z] ----------------------------------------------------------------------
-[debug] [2025-10-15T19:39:47.994Z] Command:       /home/matis/.nvm/versions/node/v22.12.0/bin/node /home/matis/.nvm/versions/node/v22.12.0/bin/firebase emulators:start --project=cargovector-e710f
-[debug] [2025-10-15T19:39:47.995Z] CLI Version:   14.19.1
-[debug] [2025-10-15T19:39:47.995Z] Platform:      linux
-[debug] [2025-10-15T19:39:47.995Z] Node Version:  v22.12.0
-[debug] [2025-10-15T19:39:47.996Z] Time:          Wed Oct 15 2025 21:39:47 GMT+0200 (Central European Summer Time)
-[debug] [2025-10-15T19:39:47.996Z] ----------------------------------------------------------------------
+[debug] [2025-10-16T17:33:07.569Z] ----------------------------------------------------------------------
+[debug] [2025-10-16T17:33:07.572Z] Command:       /home/matis/.nvm/versions/node/v22.12.0/bin/node /home/matis/.nvm/versions/node/v22.12.0/bin/firebase emulators:start --project=cargovector-e710f
+[debug] [2025-10-16T17:33:07.572Z] CLI Version:   14.19.1
+[debug] [2025-10-16T17:33:07.572Z] Platform:      linux
+[debug] [2025-10-16T17:33:07.572Z] Node Version:  v22.12.0
+[debug] [2025-10-16T17:33:07.573Z] Time:          Thu Oct 16 2025 19:33:07 GMT+0200 (Central European Summer Time)
+[debug] [2025-10-16T17:33:07.573Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2025-10-15T19:39:47.999Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2025-10-15T19:39:48.461Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2025-10-15T19:39:48.626Z] Running auto auth
-[debug] [2025-10-15T19:39:48.697Z] openjdk version "17.0.16" 2025-07-15
+[debug] [2025-10-16T17:33:07.805Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-10-16T17:33:08.005Z] Running auto auth
+[debug] [2025-10-16T17:33:08.037Z] openjdk version "17.0.16" 2025-07-15
+OpenJDK Runtime Environment (build 17.0.16+8-Ubuntu-0ubuntu124.04.1)
 
-[debug] [2025-10-15T19:39:48.697Z] OpenJDK Runtime Environment (build 17.0.16+8-Ubuntu-0ubuntu124.04.1)
-OpenJDK 64-Bit Server VM (build 17.0.16+8-Ubuntu-0ubuntu124.04.1, mixed mode, sharing)
+[debug] [2025-10-16T17:33:08.037Z] OpenJDK 64-Bit Server VM (build 17.0.16+8-Ubuntu-0ubuntu124.04.1, mixed mode, sharing)
 
-[debug] [2025-10-15T19:39:48.703Z] Parsed Java major version: 17
+[debug] [2025-10-16T17:33:08.046Z] Parsed Java major version: 17
 [warn] ⬢  emulators: firebase-tools will drop support for Java version < 21 soon in firebase-tools@15. Please install a JDK at version 21 or above to get a compatible runtime. 
 [info] i  emulators: Starting emulators: auth, functions, firestore, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, extensions"}}
-[debug] [2025-10-15T19:39:48.706Z] No OAuth tokens found
-[debug] [2025-10-15T19:39:48.706Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/cargovector-e710f [none]
-[debug] [2025-10-15T19:39:48.781Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2025-10-15T19:39:48.781Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2025-10-15T19:39:48.990Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/cargovector-e710f 200
-[debug] [2025-10-15T19:39:48.990Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/cargovector-e710f {"projectNumber":"1080693110710","projectId":"cargovector-e710f","lifecycleState":"ACTIVE","name":"cargovector","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-09-23T18:53:46.130790Z"}
-[debug] [2025-10-15T19:39:48.998Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:48.998Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:48.998Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:48.998Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:48.998Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9098}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8081}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2025-10-15T19:39:49.004Z] Emulator locator file path: /tmp/hub-cargovector-e710f.json
-[debug] [2025-10-15T19:39:49.004Z] [hub] writing locator at /tmp/hub-cargovector-e710f.json
-[debug] [2025-10-15T19:39:49.008Z] [Extensions] Started Extensions emulator, this is a noop.
-[debug] [2025-10-15T19:39:49.009Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:49.010Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:49.010Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2025-10-15T19:39:49.010Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9098}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8081}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[debug] [2025-10-16T17:33:08.048Z] No OAuth tokens found
+[debug] [2025-10-16T17:33:08.049Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/cargovector-e710f [none]
+[debug] [2025-10-16T17:33:08.925Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/cargovector-e710f 200
+[debug] [2025-10-16T17:33:08.925Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/cargovector-e710f {"projectNumber":"1080693110710","projectId":"cargovector-e710f","lifecycleState":"ACTIVE","name":"cargovector","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-09-23T18:53:46.130790Z"}
+[debug] [2025-10-16T17:33:08.932Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.932Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.932Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.932Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.932Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9098}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8081}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-10-16T17:33:08.937Z] Emulator locator file path: /tmp/hub-cargovector-e710f.json
+[debug] [2025-10-16T17:33:08.937Z] [hub] writing locator at /tmp/hub-cargovector-e710f.json
+[debug] [2025-10-16T17:33:08.940Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2025-10-16T17:33:08.941Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.942Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.942Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-10-16T17:33:08.942Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9098}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8081}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
 [warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, hosting, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, database, hosting, pubsub, storage, dataconnect\u001b[22m"}}
 [warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
-[debug] [2025-10-15T19:40:04.704Z] No OAuth tokens found
-[debug] [2025-10-15T19:40:04.704Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cargovector-e710f/adminSdkConfig [none]
-[debug] [2025-10-15T19:40:05.023Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cargovector-e710f/adminSdkConfig 200
-[debug] [2025-10-15T19:40:05.023Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cargovector-e710f/adminSdkConfig {"projectId":"cargovector-e710f","storageBucket":"cargovector-e710f.firebasestorage.app"}
-[debug] [2025-10-15T19:40:05.036Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2025-10-15T19:40:05.036Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
-[debug] [2025-10-15T19:40:05.036Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/home/matis/.cache/firebase/emulators/cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8081,"--websocket_port",9150,"--project_id","cargovector-e710f","--rules","/home/matis/Desktop/projects/cargovector/firebase/firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8081} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/home/matis/.cache/firebase/emulators/cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8081,\"--websocket_port\",9150,\"--project_id\",\"cargovector-e710f\",\"--rules\",\"/home/matis/Desktop/projects/cargovector/firebase/firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8081}"}}
+[debug] [2025-10-16T17:33:24.048Z] No OAuth tokens found
+[debug] [2025-10-16T17:33:24.049Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cargovector-e710f/adminSdkConfig [none]
+[debug] [2025-10-16T17:33:24.587Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cargovector-e710f/adminSdkConfig 200
+[debug] [2025-10-16T17:33:24.587Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cargovector-e710f/adminSdkConfig {"projectId":"cargovector-e710f","storageBucket":"cargovector-e710f.firebasestorage.app"}
+[debug] [2025-10-16T17:33:24.602Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2025-10-16T17:33:24.602Z] Ignoring unsupported arg: single_project_mode_error {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: single_project_mode_error"}}
+[debug] [2025-10-16T17:33:24.602Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/home/matis/.cache/firebase/emulators/cloud-firestore-emulator-v1.19.8.jar","--host","127.0.0.1","--port",8081,"--websocket_port",9150,"--project_id","cargovector-e710f","--rules","/home/matis/Desktop/projects/cargovector/firebase/firestore.rules","--single_project_mode",true,"--functions_emulator","127.0.0.1:5001"],"optionalArgs":["port","webchannel_port","host","rules","websocket_port","functions_emulator","seed_from_export","project_id","single_project_mode"],"joinArgs":false,"shell":false,"port":8081} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/home/matis/.cache/firebase/emulators/cloud-firestore-emulator-v1.19.8.jar\",\"--host\",\"127.0.0.1\",\"--port\",8081,\"--websocket_port\",9150,\"--project_id\",\"cargovector-e710f\",\"--rules\",\"/home/matis/Desktop/projects/cargovector/firebase/firestore.rules\",\"--single_project_mode\",true,\"--functions_emulator\",\"127.0.0.1:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"websocket_port\",\"functions_emulator\",\"seed_from_export\",\"project_id\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false,\"port\":8081}"}}
 [info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
-[debug] [2025-10-15T19:40:06.085Z] Oct 15, 2025 9:40:06 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+[debug] [2025-10-16T17:33:25.569Z] Oct 16, 2025 7:33:25 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
 INFO: Started WebSocket server on ws://127.0.0.1:9150
- {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 15, 2025 9:40:06 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
-[debug] [2025-10-15T19:40:06.106Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
-[debug] [2025-10-15T19:40:06.107Z] 127.0.0.1:8081
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 16, 2025 7:33:25 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://127.0.0.1:9150\n"}}
+[debug] [2025-10-16T17:33:25.590Z] API endpoint: http://127.0.0.1:8081 {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://127.0.0.1:8081"}}
+[debug] [2025-10-16T17:33:25.590Z] 
 If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
 
    export FIRESTORE_EMULATOR_HOST=127.0.0.1:8081
@@ -61,14 +58,14 @@ If you are running a Firestore in Datastore Mode project, run:
 Note: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.
 Dev App Server is now running.
 
- {"metadata":{"emulator":{"name":"firestore"},"message":"127.0.0.1:8081\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8081\n\nIf you are running a Firestore in Datastore Mode project, run:\n\n   export DATASTORE_EMULATOR_HOST=127.0.0.1:8081\n\nNote: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.\nDev App Server is now running.\n\n"}}
+ {"metadata":{"emulator":{"name":"firestore"},"message":"\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=127.0.0.1:8081\n\nIf you are running a Firestore in Datastore Mode project, run:\n\n   export DATASTORE_EMULATOR_HOST=127.0.0.1:8081\n\nNote: Support for Datastore Mode is in preview. If you encounter any bugs please file at https://github.com/firebase/firebase-tools/issues.\nDev App Server is now running.\n\n"}}
 [info] ✔  firestore: Firestore Emulator UI websocket is running on 9150. {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator UI websocket is running on 9150."}}
-[debug] [2025-10-15T19:40:12.851Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[debug] [2025-10-16T17:33:31.662Z] [Extensions] Connecting Extensions emulator, this is a noop.
 [info] i  functions: Watching "/home/matis/Desktop/projects/cargovector/firebase/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/matis/Desktop/projects/cargovector/firebase/functions\" for Cloud Functions..."}}
-[debug] [2025-10-15T19:40:12.857Z] Validating nodejs source
+[debug] [2025-10-16T17:33:31.667Z] Validating nodejs source
 [warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
 [warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
-[debug] [2025-10-15T19:40:13.323Z] > [functions] package.json contents: {
+[debug] [2025-10-16T17:33:32.131Z] > [functions] package.json contents: {
   "name": "functions",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
@@ -119,21 +116,21 @@ Dev App Server is now running.
   },
   "private": true
 }
-[debug] [2025-10-15T19:40:13.323Z] Building nodejs source
-[debug] [2025-10-15T19:40:13.323Z] Failed to find version of module node: reached end of search path /home/matis/Desktop/projects/cargovector/firebase/functions/node_modules
+[debug] [2025-10-16T17:33:32.132Z] Building nodejs source
+[debug] [2025-10-16T17:33:32.132Z] Failed to find version of module node: reached end of search path /home/matis/Desktop/projects/cargovector/firebase/functions/node_modules
 [info] ✔  functions: Using node@22 from host. 
-[debug] [2025-10-15T19:40:13.325Z] Could not find functions.yaml. Must use http discovery
-[debug] [2025-10-15T19:40:13.328Z] Found firebase-functions binary at '/home/matis/Desktop/projects/cargovector/firebase/functions/node_modules/.bin/firebase-functions'
-[info] Serving at port 8693
+[debug] [2025-10-16T17:33:32.135Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-10-16T17:33:32.138Z] Found firebase-functions binary at '/home/matis/Desktop/projects/cargovector/firebase/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8319
 
-[debug] [2025-10-15T19:40:13.686Z] Got response from /__/functions.yaml {"endpoints":{"registerUser":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"registerUser"},"verifyEmailHandler":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"verifyEmailHandler"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"},"deleteTestUser":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"deleteTestUser"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2025-10-16T17:33:32.491Z] Got response from /__/functions.yaml {"endpoints":{"registerUser":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"registerUser"},"verifyEmailHandler":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"verifyEmailHandler"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"},"deleteTestUser":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"deleteTestUser"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
 [warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
 [info] ✔  functions: Loaded functions definitions from source: registerUser, verifyEmailHandler, api, deleteTestUser. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: registerUser, verifyEmailHandler, api, deleteTestUser."}}
 [info] ✔  functions[us-central1-registerUser]: http function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/registerUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/registerUser)."}}
 [info] ✔  functions[us-central1-verifyEmailHandler]: http function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/verifyEmailHandler). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/verifyEmailHandler)."}}
 [info] ✔  functions[us-central1-api]: http function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/api)."}}
 [info] ✔  functions[us-central1-deleteTestUser]: http function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/deleteTestUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/cargovector-e710f/us-central1/deleteTestUser)."}}
-[debug] [2025-10-15T19:40:17.735Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED 127.0.0.1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[debug] [2025-10-16T17:33:36.529Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED 127.0.0.1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
@@ -159,39 +156,93 @@ Dev App Server is now running.
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
 [warn] ⚠  emulators: firebase-tools will drop support for Java version < 21 soon in firebase-tools@15. Please install a JDK at version 21 or above to get a compatible runtime. 
-[debug] [2025-10-15T19:40:31.084Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:40:31.084Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"7e862816-f269-4e15-a409-2178d1ae6044","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:40:31.084Z","data":{"uid":"LNZE198HjHmdkyWkgo8VSiFwR8p3","email":"test-1760557230902@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:40:31.082Z","lastSignInTime":"2025-10-15T19:40:31.082Z"},"customClaims":{},"providerData":[{"rawId":"test-1760557230902@example.com","providerId":"password","email":"test-1760557230902@example.com","federatedId":"test-1760557230902@example.com"}]}}
-[debug] [2025-10-15T19:40:31.105Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:40:31.106Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2025-10-15T19:40:50.708Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:40:50.708Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"83790c39-be58-4832-a208-fdabf9da6960","eventType":"providers/firebase.auth/eventTypes/user.delete","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:40:50.707Z","data":{"uid":"LNZE198HjHmdkyWkgo8VSiFwR8p3","email":"test-1760557230902@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:40:31.082Z","lastSignInTime":"2025-10-15T19:40:47.289Z"},"customClaims":{},"providerData":[{"rawId":"test-1760557230902@example.com","providerId":"password","email":"test-1760557230902@example.com","federatedId":"test-1760557230902@example.com"}]}}
-[debug] [2025-10-15T19:40:50.715Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:40:50.715Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2025-10-15T19:40:52.540Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:40:52.540Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"07433f2b-0ef9-4661-98fc-ecebb8bfcf9e","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:40:52.540Z","data":{"uid":"EPxLr29Gr4wbYapPFz37fHAy35Vq","email":"testuser@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:40:52.540Z","lastSignInTime":"2025-10-15T19:40:52.540Z"},"customClaims":{},"providerData":[{"rawId":"testuser@example.com","providerId":"password","email":"testuser@example.com","federatedId":"testuser@example.com"}]}}
-[debug] [2025-10-15T19:40:52.549Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:40:52.549Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[info] i  To reset the password for testuser@example.com, follow this link: http://127.0.0.1:9098/emulator/action?mode=resetPassword&lang=en&oobCode=I6hqHtMWNnaW2h3mS_rpCsfnkSGG5wPXHKMOGR-bIhKIrReaWJVTUl&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE {"metadata":{"emulator":{"name":"auth"},"message":"To reset the password for testuser@example.com, follow this link: http://127.0.0.1:9098/emulator/action?mode=resetPassword&lang=en&oobCode=I6hqHtMWNnaW2h3mS_rpCsfnkSGG5wPXHKMOGR-bIhKIrReaWJVTUl&apiKey=fake-api-key&newPassword=NEW_PASSWORD_HERE"}}
-[debug] [2025-10-15T19:41:06.461Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:41:06.462Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"35c969b3-9f2a-459e-826e-ffd20d173f76","eventType":"providers/firebase.auth/eventTypes/user.delete","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:41:06.461Z","data":{"uid":"EPxLr29Gr4wbYapPFz37fHAy35Vq","email":"testuser@example.com","emailVerified":true,"metadata":{"creationTime":"2025-10-15T19:40:52.540Z","lastSignInTime":"2025-10-15T19:41:04.895Z"},"customClaims":{},"providerData":[{"rawId":"testuser@example.com","providerId":"password","email":"testuser@example.com","federatedId":"testuser@example.com"}]}}
-[debug] [2025-10-15T19:41:06.470Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:41:06.470Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2025-10-15T19:41:09.960Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:41:09.961Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"e6b5fb63-955d-4faa-b050-8ebb671bb68e","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:41:09.960Z","data":{"uid":"rWGf4huXSv2uzHq5gkrivZc5QlhQ","email":"shipper-1760557269729@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:41:09.960Z","lastSignInTime":"2025-10-15T19:41:09.960Z"},"customClaims":{},"providerData":[{"rawId":"shipper-1760557269729@example.com","providerId":"password","email":"shipper-1760557269729@example.com","federatedId":"shipper-1760557269729@example.com"}]}}
-[debug] [2025-10-15T19:41:09.978Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:41:09.978Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2025-10-15T19:41:10.962Z] Oct 15, 2025 9:41:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Oct 15, 2025 9:41:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
-[debug] [2025-10-15T19:41:18.312Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:41:18.312Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"d157a9b2-c233-41c5-b27e-e1f14515b85e","eventType":"providers/firebase.auth/eventTypes/user.delete","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:41:18.311Z","data":{"uid":"rWGf4huXSv2uzHq5gkrivZc5QlhQ","email":"shipper-1760557269729@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:41:09.960Z","lastSignInTime":"2025-10-15T19:41:14.935Z"},"customClaims":{"roles":["Shipper"]},"providerData":[{"rawId":"shipper-1760557269729@example.com","providerId":"password","email":"shipper-1760557269729@example.com","federatedId":"shipper-1760557269729@example.com"}]}}
-[debug] [2025-10-15T19:41:18.316Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:41:18.316Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2025-10-15T19:41:18.405Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:41:18.405Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"d040a936-3754-433b-8dc7-caa9b8fb8bf3","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:41:18.405Z","data":{"uid":"JnHuKWKlBTWAqvpxOAsoqg27DOJi","email":"shipper-1760557269729@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:41:18.405Z","lastSignInTime":"2025-10-15T19:41:18.405Z"},"customClaims":{},"providerData":[{"rawId":"shipper-1760557269729@example.com","providerId":"password","email":"shipper-1760557269729@example.com","federatedId":"shipper-1760557269729@example.com"}]}}
-[debug] [2025-10-15T19:41:18.411Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:41:18.412Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2025-10-15T19:41:23.763Z] >>> [apiv2][query] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast [none]
-[debug] [2025-10-15T19:41:23.763Z] >>> [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"eventId":"aeaf5f9f-54a0-41a0-b13d-69348c44dbfe","eventType":"providers/firebase.auth/eventTypes/user.delete","resource":{"name":"projects/cargovector-e710f","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2025-10-15T19:41:23.763Z","data":{"uid":"JnHuKWKlBTWAqvpxOAsoqg27DOJi","email":"shipper-1760557269729@example.com","emailVerified":false,"metadata":{"creationTime":"2025-10-15T19:41:18.405Z","lastSignInTime":"2025-10-15T19:41:21.696Z"},"customClaims":{"roles":["Shipper"]},"providerData":[{"rawId":"shipper-1760557269729@example.com","providerId":"password","email":"shipper-1760557269729@example.com","federatedId":"shipper-1760557269729@example.com"}]}}
-[debug] [2025-10-15T19:41:23.767Z] <<< [apiv2][status] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast 200
-[debug] [2025-10-15T19:41:23.767Z] <<< [apiv2][body] POST http://127.0.0.1:5001/functions/projects/cargovector-e710f/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2025-10-16T19:10:49.656Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.656Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.667Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.668Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.670Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/authMiddleware.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/authMiddleware.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.671Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/authMiddleware.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/authMiddleware.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.671Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/models/vehicle.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/models/vehicle.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.671Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/models/vehicle.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/models/vehicle.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.685Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/vehicleService.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/vehicleService.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.686Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/vehicleService.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/vehicleService.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.715Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/vehicleController.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/vehicleController.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.721Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/vehicleController.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/vehicleController.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.727Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/index.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/index.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.727Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/index.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.732Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/__mocks__/firebase-admin.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/__mocks__/firebase-admin.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.733Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/__mocks__/firebase-admin.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/__mocks__/firebase-admin.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.744Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.test.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.test.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.747Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.test.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/register.test.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.760Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.test.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.test.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.761Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.test.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/auth/verifyEmail.test.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.782Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/__tests__/vehicleController.test.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/__tests__/vehicleController.test.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.783Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/__tests__/vehicleController.test.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/controllers/__tests__/vehicleController.test.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.798Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/__tests__/vehicleService.test.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/__tests__/vehicleService.test.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.798Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/__tests__/vehicleService.test.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/services/__tests__/vehicleService.test.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.805Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/test-utils/index.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/test-utils/index.js.map changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:49.805Z] File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/test-utils/index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/matis/Desktop/projects/cargovector/firebase/functions/lib/test-utils/index.js changed, reloading triggers"}}
+[debug] [2025-10-16T19:10:50.806Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] ⚠  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-10-16T19:10:51.617Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx vitest run src"
+  },
+  "vitest": {
+    "setupFiles": [
+      "./vitest.setup.ts"
+    ],
+    "include": [
+      "src/**/*.test.ts"
+    ],
+    "exclude": [
+      "lib/**"
+    ],
+    "test": {
+      "environment": "node",
+      "globals": true,
+      "include": [
+        "src/**/*.test.ts"
+      ]
+    }
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^5.0.0",
+    "resend": "^6.1.2"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.4",
+    "typescript": "^5.0.0",
+    "vitest": "^3.2.4"
+  },
+  "private": true
+}
+[debug] [2025-10-16T19:10:51.617Z] Building nodejs source
+[debug] [2025-10-16T19:10:51.618Z] Failed to find version of module node: reached end of search path /home/matis/Desktop/projects/cargovector/firebase/functions/node_modules
+[info] ✔  functions: Using node@22 from host. 
+[debug] [2025-10-16T19:10:51.620Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-10-16T19:10:51.624Z] Found firebase-functions binary at '/home/matis/Desktop/projects/cargovector/firebase/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8276
+
+[debug] [2025-10-16T19:10:52.246Z] Got response from /__/functions.yaml {"endpoints":{"registerUser":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"registerUser"},"verifyEmailHandler":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"verifyEmailHandler"},"api":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"api"},"deleteTestUser":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"deleteTestUser"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[warn] ⚠  functions: Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful! {"metadata":{"emulator":{"name":"functions"},"message":"Application Default Credentials detected. Non-emulated services will access production using these credentials. Be careful!"}}
+[info] ✔  functions: Loaded functions definitions from source: registerUser, verifyEmailHandler, api, deleteTestUser. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: registerUser, verifyEmailHandler, api, deleteTestUser."}}

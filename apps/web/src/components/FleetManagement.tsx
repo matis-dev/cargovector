@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { addVehicle, removeVehicle, getFleet } from '@/services/userService';
+import { addVehicle, removeVehicle } from '@/services/userService';
 
 const vehicleSchema = z.object({
   name: z.string().min(1, 'Vehicle name is required'),
@@ -44,7 +44,7 @@ export default function FleetManagement({ initialVehicles = [] }: FleetManagemen
     try {
       const addedVehicle = await addVehicle(data);
       setVehicles(prev => prev.map(v => v.id === newVehicle.id ? addedVehicle : v)); // Replace temp vehicle with real one
-    } catch (error) {
+    } catch {
       setApiError('Failed to add vehicle. Please try again.');
       setVehicles(prev => prev.filter(v => v.id !== newVehicle.id)); // Rollback on error
     }
@@ -55,7 +55,7 @@ export default function FleetManagement({ initialVehicles = [] }: FleetManagemen
     try {
       await removeVehicle(id);
       setVehicles(prev => prev.filter(v => v.id !== id));
-    } catch (error) {
+    } catch {
       setApiError('Failed to remove vehicle. Please try again.');
     }
   };

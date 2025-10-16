@@ -17,7 +17,7 @@ interface UserProfile {
 
 interface Vehicle {
   id: string;
-  vehicleName: string;
+  name: string;
   licensePlate: string;
 }
 
@@ -37,7 +37,7 @@ export default function ProfilePage() {
           const fleetData = await getFleet();
           setFleet(fleetData);
         }
-      } catch (err) {
+      } catch {
         setError('Failed to load profile. Please try again later.');
       }
       setLoading(false);
@@ -51,7 +51,7 @@ export default function ProfilePage() {
       await updateMe(data);
       setProfile(prev => prev ? { ...prev, ...data } : null);
       setIsEditing(false);
-    } catch (err) {
+    } catch {
       setError('Failed to save profile. Please try again.');
     }
   };

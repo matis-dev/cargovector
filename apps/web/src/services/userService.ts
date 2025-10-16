@@ -22,7 +22,17 @@ export const getMe = async () => {
   return response.json();
 };
 
-export const updateMe = async (profileData: any) => {
+interface UserProfileData {
+  companyName?: string;
+  address?: string;
+}
+
+interface VehicleData {
+  name: string;
+  licensePlate: string;
+}
+
+export const updateMe = async (profileData: UserProfileData) => {
     const headers = await getAuthHeader();
     const response = await fetch('/api/users/me', {
         method: 'PUT',
@@ -48,7 +58,7 @@ export const getFleet = async () => {
     return response.json();
 };
 
-export const addVehicle = async (vehicleData: any) => {
+export const addVehicle = async (vehicleData: VehicleData) => {
     const headers = await getAuthHeader();
     const response = await fetch('/api/fleet', {
         method: 'POST',

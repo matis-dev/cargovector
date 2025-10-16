@@ -8,7 +8,17 @@ if (!admin.apps.length) {
   });
 }
 
-export const createUser = async ({ email, password, customClaims, profile }) => {
+export const createUser = async ({
+  email,
+  password,
+  customClaims,
+  profile,
+}: {
+  email: string;
+  password?: string;
+  customClaims?: Record<string, any>;
+  profile?: Record<string, any>;
+}) => {
   try {
     let uid;
     try {
