@@ -9,6 +9,7 @@ vi.mock('@/services/userService', () => ({
 }));
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: vi.fn() }),
+  useParams: () => ({ lang: 'en' }),
 }));
 
 describe('Profile Page', () => {

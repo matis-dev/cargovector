@@ -29,22 +29,22 @@ describe('Authentication Flow', () => {
   });
 
   it('should allow a user to visit the login page', () => {
-    cy.visit('/login');
+    cy.visit('/en/login');
     cy.contains('Sign in to your account').should('be.visible');
     cy.get('input[name="email"]').should('be.visible');
     cy.get('input[name="password"]').should('be.visible');
   });
 
   it('should show an error message with invalid credentials', () => {
-    cy.visit('/login');
+    cy.visit('/en/login');
     cy.get('input[name="email"]').type('wrong@example.com');
     cy.get('input[name="password"]').type('wrongpassword');
     cy.get('button[type="submit"]').click();
-    cy.get('[data-testid="api-error"]').should('be.visible');
+    cy.contains('Firebase: Error (auth/user-not-found).').should('be.visible');
   });
 
   it('should allow a user to log in and redirect to the dashboard', () => {
-    cy.visit('/login');
+    cy.visit('/en/login');
     cy.get('input[name="email"]').type(testEmail);
     cy.get('input[name="password"]').type(testPassword);
     cy.get('button[type="submit"]').click();
@@ -56,7 +56,7 @@ describe('Authentication Flow', () => {
 
   it('should allow a logged-in user to log out', () => {
     // First, log in
-    cy.visit('/login');
+    cy.visit('/en/login');
     cy.get('input[name="email"]').type(testEmail);
     cy.get('input[name="password"]').type(testPassword);
     cy.get('button[type="submit"]').click();
@@ -66,6 +66,6 @@ describe('Authentication Flow', () => {
     cy.contains('Logout').click();
 
     // Wait for redirection to homepage and check URL
-    cy.url().should('eq', Cypress.config().baseUrl + '/');
+    cy.url().should('eq', Cypress.config().baseUrl + '/en');
   });
 });

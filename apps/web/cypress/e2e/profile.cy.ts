@@ -45,7 +45,7 @@ describe('Profile and Fleet Management', () => {
       body: [
         { id: 'vehicle1', name: 'Old Truck', licensePlate: 'OLD-123' },
       ],
-    }).as('getFleet');
+    }).as('getFleetInitial');
 
     // Intercept the add vehicle API call
     cy.intercept('POST', '/api/fleet', {
@@ -54,11 +54,11 @@ describe('Profile and Fleet Management', () => {
     }).as('addVehicle');
 
     // Log in as the created user
-    cy.visit('/login');
+    cy.visit('/en/login');
     cy.get('input[name="email"]').type(testEmail); // Add email input
     cy.get('input[name="password"]').type(testPassword);
     cy.get('button[type="submit"]').click();
-    cy.url().should('include', '/dashboard');
+    cy.url().should('include', '/en/dashboard');
   });
 
   afterEach(() => {
@@ -68,7 +68,7 @@ describe('Profile and Fleet Management', () => {
   it('should display the profile page and allow editing', () => {
     // Navigate to profile page by clicking a link from the dashboard
     cy.contains('a', 'Profile').click();
-    cy.url().should('include', '/profile');
+    cy.url().should('include', '/en/profile');
     cy.wait('@getProfile');    // 1. Verify initial data is displayed
     cy.contains('h1', 'Company Profile');
     cy.contains('Test Co').should('be.visible');
@@ -94,9 +94,9 @@ describe('Profile and Fleet Management', () => {
   it('should allow a shipper to manage their fleet', () => {
     // Navigate to profile page by clicking a link from the dashboard
     cy.contains('a', 'Profile').click();
-    cy.url().should('include', '/profile');
+    cy.url().should('include', '/en/profile');
     cy.wait('@getProfile');
-    cy.wait('@getFleet');
+    cy.wait('@getFleetInitial');
     cy.get('h2').contains('Fleet Management').should('be.visible');
 
     // Intercept the fleet API call to return the updated fleet after adding a vehicle
@@ -106,7 +106,7 @@ describe('Profile and Fleet Management', () => {
         { id: 'vehicle1', name: 'Old Truck', licensePlate: 'OLD-123' },
         { id: 'vehicle2', name: 'Big Truck', licensePlate: 'TRUCK-123' },
       ],
-    }).as('getUpdatedFleet');
+    }).as('getFleetAfterAdd');
 
     // 1. Add a new vehicle
     cy.get('input[name="name"]').type('Big Truck');
@@ -114,11 +114,19 @@ describe('Profile and Fleet Management', () => {
     cy.contains('button', 'Add Vehicle').scrollIntoView().click({ force: true });
 
     cy.wait('@addVehicle');
-    cy.wait('@getUpdatedFleet');
+    cy.wait('@getFleetAfterAdd');
 
     // 2. Verify the new vehicle is in the list
     cy.contains('.font-medium', 'Big Truck').should('be.visible');
     cy.contains('.text-sm', 'TRUCK-123').should('be.visible');
+
+    // Intercept the fleet API call to return the updated fleet after removing a vehicle
+    cy.intercept('GET', '/api/fleet', {
+      statusCode: 200,
+      body: [
+        { id: 'vehicle1', name: 'Old Truck', licensePlate: 'OLD-123' },
+      ],
+    }).as('getFleetAfterRemove');
 
     // Intercept the remove vehicle API call
     cy.intercept('DELETE', '/api/fleet/vehicle2', {
@@ -132,6 +140,7 @@ describe('Profile and Fleet Management', () => {
     });
 
     cy.wait('@removeVehicle');
+    cy.wait('@getFleetAfterRemove');
 
     // 4. Verify the vehicle is removed
     cy.contains('.font-medium', 'Big Truck').should('not.exist');

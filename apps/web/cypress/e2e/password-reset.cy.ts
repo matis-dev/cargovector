@@ -6,7 +6,7 @@ describe('Password Reset Flow', () => {
   beforeEach(() => {
     // Create a user in the emulator before each test
     cy.task('createUser', { email: testEmail, password: initialPassword });
-    cy.visit('/login');
+    cy.visit('/en');
   });
 
   afterEach(() => {
@@ -16,7 +16,7 @@ describe('Password Reset Flow', () => {
 
   it('should allow a user to request a reset link, reset their password, and log in', () => {
     // --- Request Password Reset ---
-    cy.contains('Forgot your password?').click();
+    cy.contains('Forgot Password').click();
     cy.url().should('include', '/forgot-password');
     cy.get('h2').should('contain', 'Forgot Your Password?');
 
@@ -34,7 +34,7 @@ describe('Password Reset Flow', () => {
       const url = new URL(link as string);
       const oobCode = url.searchParams.get('oobCode');
       
-      cy.visit(`/reset-password?oobCode=${oobCode}`);
+      cy.visit(`/en/reset-password?oobCode=${oobCode}`);
 
       cy.get('h2').should('contain', 'Reset Your Password');
 
@@ -44,7 +44,7 @@ describe('Password Reset Flow', () => {
 
       // Check for success message and redirection
       cy.contains('Password has been reset successfully').should('be.visible');
-      cy.url().should('include', '/login');
+      cy.url().should('include', '/en/login');
 
       // --- Verify New Password ---
       // Attempt to log in with the new password
@@ -53,7 +53,7 @@ describe('Password Reset Flow', () => {
       cy.get('button[type="submit"]').click();
 
       // Should redirect to dashboard on successful login
-      cy.url().should('include', '/dashboard');
+      cy.url().should('include', '/en/dashboard');
     });
   });
 });

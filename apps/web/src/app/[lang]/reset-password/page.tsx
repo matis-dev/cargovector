@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, useParams } from 'next/navigation';
 import { auth } from '@/lib/firebase/client';
 import { confirmPasswordReset } from 'firebase/auth';
 
@@ -21,6 +21,8 @@ type ResetPasswordInputs = z.infer<typeof resetPasswordSchema>;
 export default function ResetPasswordPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const params = useParams();
+  const lang = params.lang;
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const {
@@ -45,7 +47,7 @@ export default function ResetPasswordPage() {
     try {
       await confirmPasswordReset(auth, oobCode, data.password);
       setSuccess('Password has been reset successfully. You can now log in with your new password.');
-      setTimeout(() => router.push('/login'), 3000);
+      setTimeout(() => router.push(`/${lang}/login`), 3000);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);

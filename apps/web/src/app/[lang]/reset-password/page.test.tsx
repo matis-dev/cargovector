@@ -16,6 +16,7 @@ vi.mock('firebase/auth', () => ({
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push }),
   useSearchParams: () => new URLSearchParams('oobCode=test-code'),
+  useParams: () => ({ lang: 'en' }),
 }));
 
 describe('Reset Password Page', () => {

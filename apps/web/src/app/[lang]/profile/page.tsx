@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
-import { getMe, updateMe, getFleet } from '@/services/userService';
+import { getMe, updateMe, getFleet, addVehicle, removeVehicle } from '@/services/userService';
 import ProfileForm from '@/components/ProfileForm';
-
 import FleetManagement from '@/components/FleetManagement';
 
 interface UserProfile {
@@ -27,6 +26,12 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [fleetApiError, setFleetApiError] = useState<string | null>(null);
+
+  const fetchFleet = async () => {
+    const fleetData = await getFleet();
+    setFleet(fleetData);
+  };
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -34,8 +39,7 @@ export default function ProfilePage() {
         const data = await getMe();
         setProfile(data);
         if (data.roles.includes('Shipper')) {
-          const fleetData = await getFleet();
-          setFleet(fleetData);
+          await fetchFleet();
         }
       } catch {
         setError('Failed to load profile. Please try again later.');
@@ -53,6 +57,26 @@ export default function ProfilePage() {
       setIsEditing(false);
     } catch {
       setError('Failed to save profile. Please try again.');
+    }
+  };
+
+  const handleAddVehicle = async (data: { name: string; licensePlate: string }) => {
+    setFleetApiError(null);
+    try {
+      await addVehicle(data);
+      await fetchFleet();
+    } catch {
+      setFleetApiError('Failed to add vehicle. Please try again.');
+    }
+  };
+
+  const handleRemoveVehicle = async (id: string) => {
+    setFleetApiError(null);
+    try {
+      await removeVehicle(id);
+      await fetchFleet();
+    } catch {
+      setFleetApiError('Failed to remove vehicle. Please try again.');
     }
   };
 
@@ -97,7 +121,7 @@ export default function ProfilePage() {
             <div className="mt-8">
                 <h2 className="text-2xl font-bold mb-4">Fleet Management</h2>
                 <div className="bg-white shadow-md rounded-lg p-6">
-                    <FleetManagement initialVehicles={fleet} />
+                    <FleetManagement vehicles={fleet} onAddVehicle={handleAddVehicle} onRemoveVehicle={handleRemoveVehicle} apiError={fleetApiError} />
                 </div>
             </div>
         )}

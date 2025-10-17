@@ -5,6 +5,10 @@ import LoginForm from './LoginForm';
 describe('LoginForm', () => {
   const onLogin = vi.fn();
 
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('should render email and password fields', () => {
     render(<LoginForm onLogin={onLogin} error={null} />);
     expect(screen.getByLabelText('Email address')).toBeInTheDocument();
@@ -12,19 +16,23 @@ describe('LoginForm', () => {
   });
 
   it('should display an error message for invalid email', async () => {
-    render(<LoginForm onLogin={onLogin} error={null} />);
+    const { container } = render(<LoginForm onLogin={onLogin} error={null} />);
     fireEvent.change(screen.getByLabelText('Email address'), { target: { value: 'invalid-email' } });
-    fireEvent.click(screen.getByText('Sign in'));
+    fireEvent.change(screen.getByLabelText('Password'), { target: { value: 'password123' } });
+    fireEvent.submit(container.querySelector('form')!)
 
     expect(await screen.findByText('Invalid email address')).toBeInTheDocument();
+    expect(onLogin).not.toHaveBeenCalled();
   });
 
   it('should display an error message for short password', async () => {
     render(<LoginForm onLogin={onLogin} error={null} />);
+    fireEvent.change(screen.getByLabelText('Email address'), { target: { value: 'test@example.com' } });
     fireEvent.change(screen.getByLabelText('Password'), { target: { value: '123' } });
     fireEvent.click(screen.getByText('Sign in'));
 
     expect(await screen.findByText('Password must be at least 6 characters')).toBeInTheDocument();
+    expect(onLogin).not.toHaveBeenCalled();
   });
 
   it('should call onLogin with form data on valid submission', async () => {
@@ -34,7 +42,7 @@ describe('LoginForm', () => {
     fireEvent.click(screen.getByText('Sign in'));
 
     await waitFor(() => {
-      expect(onLogin).toHaveBeenCalledWith({ email: 'test@example.com', password: 'password123' });
+      expect(onLogin).toHaveBeenCalledWith({ email: 'test@example.com', password: 'password123' }, expect.anything());
     });
   });
 

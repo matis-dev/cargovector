@@ -4,12 +4,9 @@ import LogoutButton from './LogoutButton';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
-vi.mock('firebase/auth', () => ({
-  signOut: vi.fn(() => Promise.resolve()),
-}));
-
 vi.mock('next/navigation', () => ({
   useRouter: vi.fn(() => ({ push: vi.fn() })),
+  useParams: () => ({ lang: 'en' }),
 }));
 
 describe('LogoutButton', () => {
@@ -27,7 +24,7 @@ describe('LogoutButton', () => {
 
     await waitFor(() => {
       expect(signOut).toHaveBeenCalled();
-      expect(push).toHaveBeenCalledWith('/');
+      expect(push).toHaveBeenCalledWith('/en');
     });
   });
 });

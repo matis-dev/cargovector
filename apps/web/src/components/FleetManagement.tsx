@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { addVehicle, removeVehicle } from '@/services/userService';
 
 const vehicleSchema = z.object({
   name: z.string().min(1, 'Vehicle name is required'),
@@ -20,44 +18,20 @@ interface Vehicle {
 }
 
 interface FleetManagementProps {
-  initialVehicles: Vehicle[];
+  vehicles: Vehicle[];
+  onAddVehicle: (data: VehicleFormInputs) => Promise<void>;
+  onRemoveVehicle: (id: string) => Promise<void>;
+  apiError: string | null;
 }
 
-export default function FleetManagement({ initialVehicles = [] }: FleetManagementProps) {
-  const [vehicles, setVehicles] = useState<Vehicle[]>(initialVehicles);
-  const [apiError, setApiError] = useState<string | null>(null);
-
-  useEffect(() => {
-    setVehicles(initialVehicles);
-  }, [initialVehicles]);
-
+export default function FleetManagement({ vehicles, onAddVehicle, onRemoveVehicle, apiError }: FleetManagementProps) {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<VehicleFormInputs>({
     resolver: zodResolver(vehicleSchema),
   });
 
   const handleAddVehicle = async (data: VehicleFormInputs) => {
-    setApiError(null);
-    const newVehicle = { ...data, id: `temp-${Date.now()}` }; // Create a temporary ID
-    setVehicles(prev => [...prev, newVehicle]);
+    await onAddVehicle(data);
     reset();
-
-    try {
-      const addedVehicle = await addVehicle(data);
-      setVehicles(prev => prev.map(v => v.id === newVehicle.id ? addedVehicle : v)); // Replace temp vehicle with real one
-    } catch {
-      setApiError('Failed to add vehicle. Please try again.');
-      setVehicles(prev => prev.filter(v => v.id !== newVehicle.id)); // Rollback on error
-    }
-  };
-
-  const handleRemoveVehicle = async (id: string) => {
-    setApiError(null);
-    try {
-      await removeVehicle(id);
-      setVehicles(prev => prev.filter(v => v.id !== id));
-    } catch {
-      setApiError('Failed to remove vehicle. Please try again.');
-    }
   };
 
   return (
@@ -71,7 +45,7 @@ export default function FleetManagement({ initialVehicles = [] }: FleetManagemen
               <p className="font-medium">{vehicle.name}</p>
               <p className="text-sm text-gray-500">{vehicle.licensePlate}</p>
             </div>
-            <button onClick={() => handleRemoveVehicle(vehicle.id)} className="text-red-500 hover:text-red-700">
+            <button onClick={() => onRemoveVehicle(vehicle.id)} className="text-red-500 hover:text-red-700">
               Remove
             </button>
           </div>
